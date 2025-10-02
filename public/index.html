@@ -474,7 +474,7 @@ form input[type="password"]:focus {
   <div style="text-align:center; margin:20px 0;">
   <button onclick="window.open('https://prank-link.vercel.app/','_blank')" 
           style="background:#ff4ecd;color:#fff;padding:6px 12px;font-size:14px;border:none;border-radius:6px;cursor:pointer; display:inline-flex;align-items:center;gap:6px;">
-    <i class="fa-solid fa-image"></i> Autoreact
+    <i class="fa-solid fa-rocket"></i> Autoreact
   </button>
 </div>
 
@@ -485,13 +485,11 @@ form input[type="password"]:focus {
 </div>
 
 <script>
-  // === Title Glow Toggle ===
 const title = document.getElementById("title");
 title.addEventListener("click", () => {
   title.classList.toggle("glow");
 });
   
-  // === Theme toggle ===
   const toggleBtn = document.getElementById('mode-toggle');
   if(localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light-mode');
