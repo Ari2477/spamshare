@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ShareBoost — Facebook Share Tool</title>
+<title>Ari — Facebook Share Tool</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    /* === Keep all your previous styles === */
     body {
       font-family: Arial, sans-serif;
       background: #0f0f17;
@@ -17,7 +16,6 @@
       transition: background 0.3s, color 0.3s;
     }
     
-/* Glow effect class (idadagdag lang, wag papalitan yung nasa taas) */
 h1.glow {
   text-shadow: 0 0 10px #ff4ecd, 
                0 0 20px #ff4ecd, 
@@ -195,7 +193,6 @@ h1.glow {
       transition: background 0.3s, color 0.3s;
     }
     body.light-mode #user-count { background: #eee; color: #222; }
-    /* Ayusin layout ng form fields (lahat ng inputs pare-pareho na ang style) */
 form input[type="text"],
 form input[type="number"],
 form input[type="password"] {
@@ -211,7 +208,6 @@ form input[type="password"] {
   transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* Focus effect (glow sa pink violet kapag nagta-type ka) */
 form input[type="text"]:focus,
 form input[type="number"]:focus,
 form input[type="password"]:focus {
@@ -220,13 +216,11 @@ form input[type="password"]:focus {
   outline: none;
 }
 
-/* Wrapper ng bawat label at input */
 .form-group {
   margin-bottom: 15px;
   text-align: left;
 }
 
-/* General button style */
 .btn-container button {
   flex: 1;
   padding: 10px;
@@ -239,7 +233,6 @@ form input[type="password"]:focus {
   color: #fff;
 }
 
-/* Start button (gradient + glow) */
 #submit-button {
   background: linear-gradient(135deg, #ff4ecd, #a74fff);
   box-shadow: 0 4px 12px rgba(255, 78, 205, 0.4);
@@ -250,7 +243,6 @@ form input[type="password"]:focus {
   transform: translateY(-2px);
 }
 
-/* Stop button (red theme) */
 #stop-button {
   background: linear-gradient(135deg, #ff4444, #cc0000);
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
@@ -260,7 +252,6 @@ form input[type="password"]:focus {
   box-shadow: 0 6px 16px rgba(255, 0, 0, 0.6);
   transform: translateY(-2px);
 }
-   /* Tooltip polish */
 .tooltip {
   display: inline-block;
   margin-left: 6px;
@@ -271,14 +262,12 @@ form input[type="password"]:focus {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Glow at scale effect pag hover */
 .tooltip:hover {
   color: #a74fff;
   text-shadow: 0 0 8px rgba(167, 79, 255, 0.8);
   transform: scale(1.2);
 }
 
-/* Tooltip text (lalabas pag hover) */
 .tooltip::after {
   content: attr(data-text);
   position: absolute;
@@ -296,12 +285,10 @@ form input[type="password"]:focus {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Lalabas lang kapag hover */
 .tooltip:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(-5px);
-} 
-    /* === Result Box polish === */
+}
 #result {
   margin-top: 15px;
   padding: 12px;
@@ -323,13 +310,11 @@ form input[type="password"]:focus {
   box-shadow: 0 0 12px rgba(255, 78, 78, 0.4);
 }
 
-/* Fade animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Current Online card polish === */
 .current-online {
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -340,7 +325,7 @@ form input[type="password"]:focus {
 }
     .btn-loading {
   position: relative;
-  pointer-events: none; /* para hindi ulit ma-click */
+  pointer-events: none; 
   opacity: 0.7;
 }
 
@@ -377,9 +362,8 @@ form input[type="password"]:focus {
   padding: 6px 10px;
   border-radius: 6px;
 }
-    /* Convert button loading effect */
     #convert-button {
-  position: relative; /* kailangan para gumana spinner sa loading */}
+  position: relative; /* tite */}
 #convert-button.btn-loading {
   background: linear-gradient(135deg, #32ff7e, #ff4ecd);
   color: #fff;
@@ -518,7 +502,6 @@ title.addEventListener("click", () => {
     localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
   });
 
-  // === Typing tagline ===
   const text = "Automated tool that boosts your Facebook shares using AppState.";
   let i = 0;
   function typeWriter() {
@@ -556,7 +539,7 @@ title.addEventListener("click", () => {
 
 function showAuthMessage(msg, type="success") {
   authFeedback.textContent = msg;
-  authFeedback.className = type; // "success" o "error"
+  authFeedback.className = type; 
 }
 
   function signup() {
@@ -583,7 +566,7 @@ users[username] = password;
 localStorage.setItem('users', JSON.stringify(users));
 showAuthMessage('Account created! Please login', 'success');
 signupBtn.classList.remove("btn-loading");
-  }, 1000); // simulate loading (1s)
+  }, 1000); 
 }
 
 function login() {
@@ -615,7 +598,7 @@ function login() {
      showAuthMessage('Invalid credentials', 'error');
     }
     loginBtn.classList.remove("btn-loading");
-  }, 1000); // simulate loading (1s)
+  }, 1000); 
 }
   updateUserCount();
 
@@ -646,10 +629,10 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
       });
       const data = await response.json();
       if (data.status === 200) {
-  result.className = "success"; // dagdag class
+  result.className = "success"; 
   result.innerHTML = '<i class="fa-solid fa-circle-check"></i> Submitted successfully!';
 } else {
-  result.className = "error"; // dagdag class
+  result.className = "error"; 
   result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Error: ' + data.error;
 }
 
@@ -707,10 +690,8 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
             timeSpan.textContent = formatTimeAgo(startTime);
           } else timeSpan.textContent = 'Just now';
         });
-        // Update summary
         summary.innerHTML=`<i class="fa-solid fa-chart-pie"></i> Total Shares: ${totalCount}/${totalTarget}`;
 
-        // === NEW LIST OF SESSION IDS ===
         const idList = data.map((link,index)=>`${index+1}. ${link.id}`).join('<br>');
         const idListContainer = document.createElement('div');
         idListContainer.style.marginTop = "8px";
@@ -747,11 +728,11 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
       document.getElementById("processing").innerHTML = '<i class="fa-solid fa-circle-stop"></i> Sharing Stopped.';
       document.getElementById("share-summary").innerHTML = '<i class="fa-solid fa-chart-pie"></i> Total Shares: 0';
       
-      // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ gamit success class
+      // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ use success class
       result.className = "success";
       result.innerHTML = '<i class="fa-solid fa-circle-check"></i> Session stopped successfully';
     } else {
-      // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ gamit error class
+      // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ use error class
       result.className = "error";
       result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Error: ' + (data.error || "Unknown");
     }
@@ -763,7 +744,6 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
   }
 });
 
-  // Cookie to AppState
   const cookieInput = document.getElementById('cookies');
   const convertBtn = document.getElementById('convert-button');
   const feedback = document.getElementById('cookie-feedback');
@@ -791,16 +771,16 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
   });
   convertBtn.addEventListener('click', ()=>{
   const cookieStr = cookieInput.value.trim();
-  convertBtn.classList.add("btn-loading"); // start loading
+  convertBtn.classList.add("btn-loading"); 
 
-  setTimeout(() => { // simulate conversion
+  setTimeout(() => { 
     if(!cookieStr){
       feedback.textContent = 'Enter cookie string first!';
       feedback.classList.add('invalid');
       feedback.classList.remove('valid');
       cookieInput.classList.add('invalid');
       cookieInput.classList.remove('valid');
-      convertBtn.classList.remove("btn-loading"); // stop loading
+      convertBtn.classList.remove("btn-loading"); 
       return;
     }
     if(!validateCookie(cookieStr)){
@@ -809,7 +789,7 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
       feedback.classList.remove('valid');
       cookieInput.classList.add('invalid');
       cookieInput.classList.remove('valid');
-      convertBtn.classList.remove("btn-loading"); // stop loading
+      convertBtn.classList.remove("btn-loading");
       return;
     }
     try{
@@ -840,30 +820,25 @@ video.play().catch(e => console.log("Video autoplay blocked, user interaction re
       cookieInput.classList.remove('valid');
       console.error(e);
     }
-    convertBtn.classList.remove("btn-loading"); // stop loading
+    convertBtn.classList.remove("btn-loading"); 
   }, 800);
 });
-// === UID extraction + User list ===
 convertBtn.addEventListener('click', () => {
   const cookieStr = cookieInput.value.trim();
-  // try to get UID from cookie string
   const match = cookieStr.match(/c_user=(\d+)/);
   if(match){
     const uid = match[1];
 
-    // Save UID sa localStorage
     let uids = JSON.parse(localStorage.getItem("uids") || "[]");
     if(!uids.includes(uid)) {
       uids.push(uid);
       localStorage.setItem("uids", JSON.stringify(uids));
     }
 
-    // Update Users list
     updateUserList();
   }
 });
 
-// === Function to show UIDs below Users ===
 function updateUserList(){
   let uids = JSON.parse(localStorage.getItem("uids") || "[]");
   const usersNum = document.getElementById("users-num");
@@ -887,7 +862,6 @@ function updateUserList(){
   }
 }
 
-// Load list pag refresh
 updateUserList();
 </script>
 </body>
